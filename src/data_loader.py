@@ -36,7 +36,7 @@ def load_csv_to_dataframe(csv_path: Path) -> pd.DataFrame:
     print(f"Loading CSV from: {csv_path}")
     
     # Read CSV with pandas
-    # low_memory=False prevents dtype warnings for mixed-type columns
+    # low_memory=False to prevent dtype warnings for mixed-type columns
     df = pd.read_csv(csv_path, low_memory=False)
     
     print(f"✓ CSV loaded successfully: {len(df)} rows, {len(df.columns)} columns")
@@ -82,6 +82,10 @@ def validate_dataframe(df: pd.DataFrame) -> Tuple[bool, list]:
     all_null_rows = df.isnull().all(axis=1).sum()
     if all_null_rows > 0:
         issues.append(f"Found {all_null_rows} completely empty rows")
+
+    all_duplicated_rows = df.duplicated().sum()
+    if all_duplicated_rows > 0:
+        issues.append(f"Found {all_duplicated_rows} duplicated rows")
     
     # Check sales columns are numeric
     sales_columns = ['NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']
