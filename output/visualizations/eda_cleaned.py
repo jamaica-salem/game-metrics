@@ -49,7 +49,7 @@ plt.figure(figsize=(12,6))
 sns.countplot(data=df[df['year'].notnull()], x='year', hue='genre', palette="Set2")
 plt.title("Genre Popularity Over Time")
 plt.xlabel("Year")
-plt.ylabel("Number of Games Released")
+plt.ylabel("Number of Games Released")  
 plt.legend(title='Genre', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()  
 
