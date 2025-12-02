@@ -19,8 +19,7 @@ playasia-gaming-analytics/
 ├── data/
 │   ├── raw/              # Original datasets
 │   └── processed/        # Cleaned data
-├── notebooks/            # Jupyter analysis notebooks
-├── src/                  # Reusable Python modules
+├── src/                  # Python modules
 ├── output/
 │   ├── visualizations/   # Generated charts
 │   └── models/           # Trained ML models
